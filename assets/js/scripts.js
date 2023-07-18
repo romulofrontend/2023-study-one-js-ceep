@@ -14,17 +14,38 @@ botao.addEventListener('click', (e) => {
   // 5) Acesso o valor inserido no elemento input e atribuo a uma var
   const valor = input.value;
 
-  // 6) Acesso o elemento e atibuo a uma var
-  const task = document.querySelector('[data-list-text]');
-
-  // 7) Valido que se o input não for preenchido é exibida uma mensagem que solicita o preenchimento
+ 
+  // 6) Valido que se o input não for preenchido é exibida uma mensagem que solicita o preenchimento
   if(valor == '')
   {
-    task.innerText = 'Informe um nome para sua tarefa'
+    alert("Informe um nome para a tarefa")
   } 
-  // 8) Se tiver o input tiver sido preenchido é exibida uma mensagem com esse valor inserido
+  // 7) Se tiver o input tiver sido preenchido criar o item na lista
   else
   {
-    task.innerText = valor;
+
+    //Texto a ser inserido na li
+    const novaTask = `<p class="task" data-task>
+      ${valor}
+    </p>`;
+    
+    //Acessando e atribuindo a li a uma var 
+    const listaItem = document.createElement('li');
+
+    //Inserindo a class na li
+    listaItem.classList.add('listItem');
+
+    //Inserindo o data-attribute na li
+    listaItem.setAttribute('data-list-item','');
+
+    //Inserindo o texto dentro da li
+    listaItem.innerHTML = novaTask;
+
+    //Acessando e atribuindo a lista a uma var
+    const lista = document.querySelector('[data-list]');
+
+    //Inserindo a li após a última li da lista
+    lista.appendChild(listaItem);
+    
   }
 });
