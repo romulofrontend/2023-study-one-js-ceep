@@ -45,7 +45,7 @@ botao.addEventListener('click', (e) => {
     const lista = document.querySelector('[data-list]');
 
     //Inserindo a li após a última li da lista
-    lista.appendChild(listaItem);
+    lista.appendChild(listaItem); 
     
   }
 });
